@@ -21,17 +21,8 @@ subplot(1,2,2); imshow(Kosc_bwmorph); title('Kosc bwmorph');
 
 %% 
 Text = imread('text.bmp');
-figure;
 subplot(1,3,1); imshow(Text); title('Text');
 subplot(1,3,2); imshow(imopen(Text, ones(51,1))); title('Otwarcie');
-subplot(1,3,3); imshow(imreconstruct(imerode(Text, ones(51,1)), Text)); title('Rekonstrukcja');
-
-figure;
-subplot(1,2,1); imshow(Text); title('Text');
-subplot(1,2,2); imshow(imfill(Text, 'holes')); title('Fill holes');
-
-figure;
-subplot(1,2,1); imshow(Text); title('Text');
-subplot(1,2,2); imshow(imclearborder(Text)); title('Clear border');
+subplot(1,3,3); imshow(imreconstruct(imerode(Text, ones(51,1)), Text));
 
 
