@@ -1,0 +1,17 @@
+close all; clearvars; clc;
+
+dom = imread('dom.png');
+
+%%
+dom_log = edge(dom,'log');
+figure;
+subplot(1,2,1); imshow(dom);
+subplot(1,2,2); imshow(dom_log);
+
+%%
+dom_canny = edge(dom, 'canny');
+figure;
+subplot(1,2,1); imshow(dom);
+subplot(1,2,2); imshow(dom_canny);
+
+%%

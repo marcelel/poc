@@ -22,7 +22,7 @@ subplot(1,3,2); imshow(imtophat(Ferrari, strel('square', 3))); title('Top-hat');
 subplot(1,3,3); imshow(imbothat(Ferrari, strel('square', 3))); title('Bottom-hat');
 
 %%
-Rice = imread('Rice.png');
+Rice = imread('rice.png');
 figure;
 subplot(1,2,1); imshow(Rice); title('Rice');
 subplot(1,2,2); imshow(imtophat(Rice, strel('disk',10))); title('Top-hat z disk 10');
