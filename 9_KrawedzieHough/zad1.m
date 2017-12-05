@@ -5,14 +5,14 @@ dom = imread('dom.png');
 %%
 dom_log = edge(dom,'log');
 figure;
-subplot(1,2,1); imshow(dom);
-subplot(1,2,2); imshow(dom_log);
+subplot(1,2,1); imshow(dom); title('original');
+subplot(1,2,2); imshow(dom_log); title('log');
 
 %%
 dom_canny = edge(dom, 'canny');
 figure;
-subplot(1,2,1); imshow(dom);
-subplot(1,2,2); imshow(dom_canny);
+subplot(1,2,1); imshow(dom); title('original');
+subplot(1,2,2); imshow(dom_canny); title('canny');
 
 %%
 dom_sobel = edge(dom, 'sobel', 0.05);
