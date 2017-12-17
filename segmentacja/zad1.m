@@ -17,15 +17,20 @@ stack(1,:) = [x, y];
 visited(x, y) = 1;
 segmented(x, y) = 1;
 
+mV = knee_double(x, y);
+nS = 1;
+
 while iStack > 0
-    brigthness = 4;
+    brigthness = 47;
     x = stack(iStack, 1);
     y = stack(iStack, 2);
     value = knee_double(x, y);
     iStack = iStack - 1;
+    nS = nS + 1;
+    mV = (mV * (nS - 1) + knee_double(x, y)) / nS;
     for i = x-1:x+1
         for j = y-1:y+1
-            diff = abs(knee_double(x, y) - knee_double(i, j));
+            diff = mV - knee_double(i, j);
             if (diff < brigthness && visited(i, j) == 0)
                 iStack = iStack + 1;
                 stack(iStack, :) = [i, j];
@@ -37,4 +42,4 @@ while iStack > 0
 end
 
 figure;
-imshow(segmented);
+imshow(segmented, []);
