@@ -17,11 +17,15 @@ umbrella_rgb2hsv_H = double(umbrella_rgb2hsv(:, :, 1));
 color = 5/255;
 threshold = 0.05;
 split_limit = 8;
-index = 1;
+index = -1;
 segRes = zeros(Y, X);
 mRes = zeros(Y, X);
 
 segmentation_split(umbrella_rgb2hsv_H, 1, 1, X, Y);
+
+figure;
+subplot(1,2,1); imshow(segRes, []);
+subplot(1,2,2); imshow(mRes, []);
 
 i = 0;
 while i <= index
@@ -52,19 +56,31 @@ while i <= index
     end
 end
 
+figure;
+subplot(1,2,1); imshow(segRes, []);
+subplot(1,2,2); imshow(mRes, []);
+
 U = unique(segRes);
 for i = 1:numel(U)
     subpart = segRes == U(i);
-    if sum(subpart) < 25
+    if sum(subpart) < 40
         segRes(subpart) = 0;
     end
 end
 
+figure;
+subplot(1,2,1); imshow(segRes, []);
+subplot(1,2,2); imshow(mRes, []);
+
 U2 = unique(segRes);
 for i = 1:numel(U2)
-    subpart = segRes == U(i);
+    subpart = segRes == U2(i);
     segRes(subpart) = i;
 end
+
+figure;
+subplot(1,2,1); imshow(segRes, []);
+subplot(1,2,2); imshow(mRes, []);
 
 segRes_label2rgb = label2rgb(segRes);
 
