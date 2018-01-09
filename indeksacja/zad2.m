@@ -25,7 +25,7 @@ wspReal = obliczWspolczynniki(shapesReal);
 for i = 1:XXr
    for j = 1:YYr
        piksel = shapesReal(i,j);
-       if (piksel ~= 0 && ~(wspReal(piksel, 2) > 0.33 && wspReal(piksel, 2) < 0.66))
+       if (piksel ~= 0 && ~(wspReal(piksel, 2) > 0.42 && wspReal(piksel, 2) < 0.66))
             shapesReal(i,j) = 0;
        end
    end

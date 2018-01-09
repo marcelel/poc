@@ -1,0 +1,13 @@
+close all; clearvars; clc;
+
+img = imread('kola.bmp');
+img_fft2 = fft2(dwieFale);
+img_fftshift = fftshift(img_fft2);
+img_ifftshift = ifftshift(img_fftshift);
+img_ifft2 = ifft2(img_ifftshift);
+
+figure;
+subplot(2,2,1); imshow(img);
+subplot(2,2,2); imshow(img_ifft2);
+subplot(2,2,3); imshow(img);
+subplot(2,2,4); imshow(img);

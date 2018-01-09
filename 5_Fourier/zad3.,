@@ -1,0 +1,5 @@
+close all; clearvars; clc;
+
+dwieFale = imread(img);
+dwieFale_fft2 = fft2(dwieFale);
+dwieFale_fftshift = fftshift(dwieFale_fft2);

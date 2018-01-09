@@ -1,0 +1,4 @@
+close all; clearvars; clc;
+
+fimage('dwieFale');
+fimage(
