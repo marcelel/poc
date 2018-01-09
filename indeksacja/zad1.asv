@@ -50,8 +50,8 @@ end
 ccl2 = imread('ccl2.png');
 
 figure;
-subplot(2,2,1); imshow(ccl1_before_union, []);
+subplot(2,2,1); imshow(ccll_before_union, []);
 subplot(2,2,2); imshow(ccl1, []);
 subplot(2,2,3); imshow(bwlabel(ccl2, 4), []);
-subplot(2,2,4); imshow(bwlabel(ccl2, 8), []);
+subplot(2,2,4); imshow(ccll_before_union, []);
 
