@@ -1,4 +1,4 @@
-function fimage(img)
+function xfimage(img)
 
 dwieFale = imread(img);
 dwieFale_fft2 = fft2(dwieFale);

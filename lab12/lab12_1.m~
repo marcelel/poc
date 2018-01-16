@@ -1,0 +1,60 @@
+%%
+close all;
+clearvars;
+clc;
+
+
+im = imread('dwieFale.bmp');
+% im = imread('kolo.bmp');
+%im = imread('kwadrat.bmp');
+% im = imread('kwadrat45.bmp');
+% im = imread('trojkat.bmp');
+%fTrans = fft2(im);
+%shift = fftshift(fTrans);
+
+[fTrans, amplitude, phase] = transformat(im);
+
+F1 = im2double(abs(fft(amplitude,[],1))+1);
+F2 = im2double(abs(fft(amplitude,[],2))+1);
+trans = abs(fTrans);
+
+
+figure();
+imshow(imabsdiff(im2double(abs(fTrans)),imadd(F1,F2)),[]);
+
+%%
+
+close all;
+clearvars;
+clc;
+
+kwadrat = imread('kwadrat.bmp');
+kwadratT = imread('kwadratT.bmp');
+kwadratS = imread('kwadratS.bmp');
+kwadrat45 = imread('kwadrat45.bmp');
+kwadratKL = imread('kwadratKL.bmp');
+
+k = fft2(kwadrat);
+kT = fft2(kwadratT);
+kS = fft2(kwadratS);
+k45 = fft2(kwadrat45);
+kKL = fft2(kwadratKL);
+
+fTrans = fft2(im);
+shift = fftshift(fTrans);
+amplitude = log10(im2double(abs(fTrans))+1);
+phase = (fTrans.*(amplitude>0.0001));
+
+figure();
+subplot(1,3,1); imshow(im,[]); title('oryginalny');
+subplot(1,3,2); imshow(amplitude,[]); title('amplituda');
+subplot(1,3,3); imshow(phase); title('faza');
+
+
+F1 = im2double(abs(fft(amplitude,[],1))+1);
+F2 = im2double(abs(fft(amplitude,[],2))+1);
+trans = abs(fTrans);
+
+
+figure();
+imshow(imabsdiff(im2double(abs(fTrans)),imadd(F1,F2)),[]);
